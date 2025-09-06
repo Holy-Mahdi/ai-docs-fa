@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>گرادیان کاهشی</title>
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- سایدبار -->
+    <aside class="sidebar">
+      <h1 class="logo">مستندات AI</h1>
+      <input type="text" id="searchBox" placeholder="جستجو...">
+      <nav id="sidebar">
+        <a href="gradient_descent.html" class="active">گرادیان کاهشی</a>
+        <a href="random_forest.html">رندوم فارست</a>
+      </nav>
+    </aside>
+
+    <!-- محتوای اصلی -->
+    <main class="main-content">
+      <h1>گرادیان کاهشی (Gradient Descent)</h1>
+
+      <h2>۱. ایده کلی</h2>
+      <p>گرادیان کاهشی یک روش تکراری برای پیدا کردن مینیمم یک تابع هزینه است.</p>
+
+      <h2>۲. فرمول</h2>
+      <pre>
+θ ← θ - α ∇θ J(θ)
+      </pre>
+
+      <h2>۳. پیاده‌سازی ساده (Python)</h2>
+      <pre>
+import numpy as np
+
+def gradient_descent(X, y, theta, lr=0.01, epochs=1000):
+    m = len(y)
+    for i in range(epochs):
+        preds = X.dot(theta)
+        error = preds - y
+        grad = (1/m) * X.T.dot(error)
+        theta = theta - lr * grad
+    return theta
+      </pre>
+    </main>
+
+  </div>
+
+  <script src="../js/search.js"></script>
+</body>
+</html>
